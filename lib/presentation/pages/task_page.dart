@@ -6,6 +6,8 @@ import 'package:task_app/presentation/utils/date_formatter.dart';
 import 'package:task_app/themes/colors.dart';
 import 'package:task_app/themes/text.dart';
 
+import '../widgets/card_progress.dart';
+
 class TaskPage extends StatefulWidget {
   const TaskPage({super.key});
 
@@ -85,7 +87,7 @@ class _DatePageState extends State<TaskPage> {
         child: Column(
           children: [
             Container(
-              height: 180.h,
+              height: 200.h,
               width: double.infinity,
               padding: EdgeInsets.symmetric(horizontal: 16.w, vertical: 20.h),
               decoration: BoxDecoration(
@@ -109,30 +111,36 @@ class _DatePageState extends State<TaskPage> {
                             fontWeight: semiBold,
                           ),
                         ),
-                        Container(
-                          height: 45.h,
-                          width: 120.w,
-                          padding: EdgeInsets.symmetric(horizontal: 16.w),
-                          decoration: BoxDecoration(
-                            borderRadius: BorderRadius.circular(20.r),
-                            gradient: kPrimaryGradient,
-                          ),
-                          child: Row(
-                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                            children: [
-                              Icon(
-                                Icons.add,
-                                color: kWhiteColor,
-                                size: 20.r,
+                        TextButton(
+                          onPressed: () {},
+                          child: Container(
+                            height: 45.h,
+                            width: 120.w,
+                            child: Container(
+                              padding: EdgeInsets.symmetric(horizontal: 16.w),
+                              decoration: BoxDecoration(
+                                borderRadius: BorderRadius.circular(20.r),
+                                gradient: kPrimaryGradient,
                               ),
-                              Text(
-                                'Add Task',
-                                textScaleFactor: 1,
-                                style: whiteTextStyle.copyWith(
-                                  fontSize: 12.sp,
-                                ),
-                              )
-                            ],
+                              child: Row(
+                                mainAxisAlignment:
+                                    MainAxisAlignment.spaceBetween,
+                                children: [
+                                  Icon(
+                                    Icons.add,
+                                    color: kWhiteColor,
+                                    size: 20.r,
+                                  ),
+                                  Text(
+                                    'Add Task',
+                                    textScaleFactor: 1,
+                                    style: whiteTextStyle.copyWith(
+                                      fontSize: 12.sp,
+                                    ),
+                                  )
+                                ],
+                              ),
+                            ),
                           ),
                         )
                       ],
@@ -200,8 +208,32 @@ class _DatePageState extends State<TaskPage> {
                         );
                       },
                     ),
-                  )
+                  ),
                 ],
+              ),
+            ),
+            Container(
+              width: double.infinity,
+              margin: EdgeInsets.only(top: 30.h, left: 20.w, bottom: 10.h),
+              child: Text(
+                'Tasks',
+                style: blackTextStyle.copyWith(
+                  fontSize: 18.sp,
+                  fontWeight: semiBold,
+                ),
+              ),
+            ),
+            Expanded(
+              child: ListView.separated(
+                padding: EdgeInsets.zero,
+                itemBuilder: (context, index) {
+                  return Padding(
+                    padding: EdgeInsets.symmetric(horizontal: 20.w),
+                    child: CardProgress(),
+                  );
+                },
+                separatorBuilder: (_, index) => const SizedBox(width: 0),
+                itemCount: 5,
               ),
             )
           ],
