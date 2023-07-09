@@ -7,12 +7,23 @@ const Color kWhiteColor = Color(0xFFFFFFFF);
 const Color kPurpleColor = Color(0xFFe5eafc);
 const Color kPrimaryColor = Color(0xFF913df4);
 const Color kSecondaryColor = Color(0xFF5740f7);
+const Color kTransparantColor = Color(0xFF00FFFFFF);
 
 const Gradient kPrimaryGradient = LinearGradient(
   begin: Alignment.topCenter,
   end: Alignment.bottomCenter,
   colors: [
     kPrimaryColor,
+    kSecondaryColor,
+  ],
+);
+
+const Gradient kSecondGradient = LinearGradient(
+  begin: Alignment.topLeft,
+  end: Alignment.bottomRight,
+  colors: [
+    kPrimaryColor,
+    kSecondaryColor,
     kSecondaryColor,
   ],
 );

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
+import 'package:task_app/presentation/pages/add_task_page.dart';
 import 'package:task_app/presentation/pages/task_page.dart';
 import 'package:task_app/presentation/pages/home_page.dart';
 
@@ -10,7 +11,7 @@ final _shellNavigatorAKey = GlobalKey<NavigatorState>(debugLabel: 'shellA');
 final _shellNavigatorBKey = GlobalKey<NavigatorState>(debugLabel: 'shellB');
 
 final router = GoRouter(
-  initialLocation: '/a',
+  initialLocation: HomePage.namePage,
   navigatorKey: _rootNavigatorKey,
   routes: [
     StatefulShellRoute.indexedStack(
@@ -22,7 +23,7 @@ final router = GoRouter(
           navigatorKey: _shellNavigatorAKey,
           routes: [
             GoRoute(
-              path: '/a',
+              path: HomePage.namePage,
               pageBuilder: (context, state) {
                 return const NoTransitionPage(child: HomePage());
               },
@@ -33,14 +34,21 @@ final router = GoRouter(
           navigatorKey: _shellNavigatorBKey,
           routes: [
             GoRoute(
-              path: '/b',
+              path: TaskPage.namePage,
               pageBuilder: (context, state) {
                 return const NoTransitionPage(child: TaskPage());
               },
-            )
+              routes: [],
+            ),
           ],
         )
       ],
-    )
+    ),
+    GoRoute(
+      path: AddTaskPage.namePage,
+      pageBuilder: (context, state) {
+        return NoTransitionPage(child: const AddTaskPage());
+      },
+    ),
   ],
 );

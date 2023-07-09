@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
+import 'package:task_app/presentation/pages/home_page.dart';
+import 'package:task_app/presentation/pages/task_page.dart';
 import 'package:task_app/themes/colors.dart';
 
 class ScaffoldWithNestedNavigation extends StatelessWidget {
@@ -34,7 +36,7 @@ class ScaffoldWithNestedNavigation extends StatelessWidget {
         onDestinationSelected: _goBranch,
         destinations: [
           NavigationDestination(
-            label: 'a',
+            label: HomePage.namePage,
             icon: Image.asset(
               "assets/icons/home_alt_fill.png",
               color: isClick == 0 ? null : kTextColor,
@@ -44,7 +46,7 @@ class ScaffoldWithNestedNavigation extends StatelessWidget {
             ),
           ),
           NavigationDestination(
-            label: 'b',
+            label: TaskPage.namePage,
             icon: Image.asset(
               "assets/icons/calendar.png",
               color: isClick == 1 ? null : kTextColor,
