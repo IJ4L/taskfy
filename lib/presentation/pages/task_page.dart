@@ -71,7 +71,7 @@ class _DatePageState extends State<TaskPage> {
               Container(
                 height: 190.h,
                 width: double.infinity,
-                padding: EdgeInsets.symmetric(horizontal: 16.w, vertical: 18.h),
+                padding: EdgeInsets.symmetric(horizontal: 20.w, vertical: 18.h),
                 decoration: BoxDecoration(
                   color: kWhiteColor,
                   borderRadius: BorderRadius.vertical(

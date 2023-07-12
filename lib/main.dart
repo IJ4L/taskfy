@@ -17,9 +17,11 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ScreenUtilInit(
+      rebuildFactor: RebuildFactors.all,
       builder: (BuildContext context, Widget? child) {
         return MultiBlocProvider(
           providers: [
+            
             BlocProvider(create: (context) => OpacityCubit()),
             BlocProvider(
               create: (context) => DatePickerCubit(
@@ -36,4 +38,3 @@ class MyApp extends StatelessWidget {
     );
   }
 }
- 
