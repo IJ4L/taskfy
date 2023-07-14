@@ -4,7 +4,7 @@ import 'package:task_app/presentation/pages/add_task_page.dart';
 import 'package:task_app/presentation/pages/task_page.dart';
 import 'package:task_app/presentation/pages/home_page.dart';
 
-import '../presentation/pages/bottom_navigation_bar.dart';
+import '../presentation/pages/bottom_navigation_page.dart';
 
 final _rootNavigatorKey = GlobalKey<NavigatorState>();
 final _shellNavigatorAKey = GlobalKey<NavigatorState>(debugLabel: 'shellA');

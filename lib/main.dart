@@ -21,7 +21,6 @@ class MyApp extends StatelessWidget {
       builder: (BuildContext context, Widget? child) {
         return MultiBlocProvider(
           providers: [
-            
             BlocProvider(create: (context) => OpacityCubit()),
             BlocProvider(
               create: (context) => DatePickerCubit(
